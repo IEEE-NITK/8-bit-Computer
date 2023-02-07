@@ -28,3 +28,31 @@ The A and B registers are composed of two 4 bit data registers namely 74LS173 an
 The instruction register (IR)is very similar to the A and B registers with few differences in working and usage. The IR stores the address of the instructions in 4 bits. The 4 bits are the last four least significant bits (LSB) of the IR. These bits indicate the instruction to be executed and can be loaded to the bus using the enable pin. The remaining 4 bits which are the most significant bits (MSB) of the IR are sent to the instruction decoder.
 
 ![image](https://user-images.githubusercontent.com/78913275/217154533-6b3d855f-6173-46e7-8b22-e0ce75491e00.png)
+
+### ALU
+The alu in this 8 bit computer performs basic arithmetic like addition and subtraction on 8 bit binary numbers. To perform this, two 4 bit adders have been used (IC 74LS283). The 1st operand(A0-A7) goes directly to each 4 bit adder (1st 4 bits to the 1st adder and the last 4 bits to the other adder). Since the subtraction is of 2s complement form, each bit of the second operand(B0-B7) is 1st fed into one of the inputs of 8 XOR gates(IC 74LS86), and the second input of the 8 XOR gates is a common subtract enable signal. Whenever this subtract enable signal is off, addition takes place between the 2 operands and whenever this signal is on, subtraction takes place between the 2 operands(1st operand - 2nd operand). The output of the 8 XOR gates is the original number whenever the subtract enable signal is off, and the 1s complement form of the 2nd operand whenever the subtract signal is turned on. And this result is fed into the two 4 bit adders in a similar fashion as the 1st operand.
+
+Since the subtraction is 2s complement, the subtract enable signal is itself fed as the carry in of the 1st adder, and the carry out of the 1st 4 bit adder is sent as the carry input to the 2nd 4 bit adder. Note that the resultant number is also of the 2s complement form. 
+
+The resultant number at the output(BUS_0-BUS_7) of the 4 bit adders is sent to the octal bus(74LS245) and is displayed using LEDs at the each output pin of the two 4 bit adders. 
+
+![image](https://user-images.githubusercontent.com/78913275/217158076-090f5d8c-8295-468d-a60f-3c458b1145db.png)
+
+### Program Counter
+The program counter uses a 74161 IC, which is a 4 bit synchronous counter IC that also consists of parallel load and count enable. 
+The program counter, by default starts from 0000 and increments every program cycle (not the same as every clock cycle). It generates the memory address of the next instruction to be accessed from the RAM and feeds it into the bus, (A0-A3) using the 74245 IC (octal bus). The enable pin allows the count to be incremented every program cycle. The program counter is also capable of reading a 4 bit memory address from the bus using the load enable coming from the control line. This is important for jumping to certain instructions or looping a set of instructions.
+
+![image](https://user-images.githubusercontent.com/78913275/217158402-7e0ba480-3f4b-4b17-9fd5-1484ffe6c8c0.png)
+
+
+### Memory Unit
+The RAM module stores instructions along with the required addresses or required data to be operated upon. It consists of 2 submodules: the Memory Address Register(MAR) module and the actual RAM module
+
+### Memory Address Register(MAR) Module 
+This module consists of 2:1 mux (74LS157 IC), 4 bit D register(74LS173), a 4 bit dip switch, and a select toggle switch. The select toggle switch, along with the 2:1 mux is used to toggle between address incoming from the bus or address which can be entered manually using the 4 bit dip switch. 
+The incoming address from the bus(BUS_0 to BUS_3) is stored into the 4 bit D Register. One set of inputs of the mux is given from the 4 bit dip switch, while the other set of inputs is given from the output of the D register. The output of the mux is decided by the select toggle switch, which can be toggled physically. This address output (A0-A3) is sent back to the bus, from where the RAM module takes it and operates on it.
+
+### RAM Module
+The RAM module consists of two 74189 ICs that can store 4 bits of data and have addresses of 4 bitlength giving a total storage capacity of 8 bytes each. They both are used in parallel to achieve a total of 8 bit RAM.
+The Address input to the 74189 IC comes from the bus (A0-A3) and the data input to the RAM IC’s may come either from the bus or the dip switches. The Input is selected using a 8 bit parallel MUX, which is constructed from 74157 ICs (parallel select quad 2:1 Mux). The output of the RAM ICs is inverted using 7404 IC (Hex inverter) and given to the 74245 IC (octal bus) to be fed into the bus. The write enable is given from a 2:1 mux that selects manual enable or the enable signal given from the control line.
+![image](https://user-images.githubusercontent.com/78913275/217158611-4794c0eb-d863-4daa-869f-2fb05d4aba36.png)
