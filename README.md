@@ -1,6 +1,6 @@
 # 8-bit-Computer
-Our aim is to design a 8 bit breadboard computer using hardware components.
-We will be following SAP-1 architecture for building our computer. This computer will be executing different types of instructions. We will be implementing various modules like ALU, Clock module, Registers, RAM module, Program Counter etc. PCB of the computer shall also be designed.
+The project aims to design an 8 bit computer using hardware components. It also includes deisging the PCB of the same.
+The computer encompasses various modules like ALU, Clock, Registers, RAM, Program Counter, Control unit etc. Based on SAP-1 architecture, computer will execute different types of instructions namely Load, store, add, subtract, jump, halt etc.
 
 ## Objective
 * Understanding basics of computer architecture and organization
