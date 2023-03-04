@@ -88,5 +88,8 @@ The Address input to the 74189 IC comes from the bus (A0-A3) and the data input 
 
 * Schematic of MAR module:
 
-* Schematic of RAM module
+* Schematic of RAM module:
+
+### Control Unit
+The control unit is the module that directs the operations. It instructs the other modules like registers, ALU, RAM on how to respond to the instructions. The control unit in our 8 bit computer consists of 28C16 16K EEPROM that is programmed to translate the instructions and send the correct control signals for each instruction. Each instruction is split into several steps (T0,T1...,T5) and each step gets executed at rising edge of every clock cycle. The control unit also has counter and 6 LEDs that keep track of the step currently being executed. For every instruction the first three steps are for fetching the instructions from the instruction register. The next 2 to 3 steps are decoding and executing the instructions.
 
