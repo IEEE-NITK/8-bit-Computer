@@ -93,7 +93,7 @@ The Address input to the 74189 IC comes from the bus (A0-A3) and the data input 
 ### Control Unit
 The control unit is the module that directs the operations. It instructs the other modules like registers, ALU, RAM on how to respond to the instructions. The control unit in our 8 bit computer consists of 28C16 16K EEPROM that is programmed to translate the instructions and send the correct control signals for each instruction. Each instruction is split into several steps (T0,T1...,T5) and each step gets executed at rising edge of every clock cycle. The control unit also has counter and 6 LEDs that keep track of the step currently being executed. For every instruction the first three steps are for fetching the instructions from the instruction register. The next 2 to 3 steps are decoding and executing the instructions.
 
-
+![WhatsApp Image 2023-03-04 at 15 25 33](https://user-images.githubusercontent.com/97294953/222945508-cb611bbf-ef69-450a-af61-dc1e779717ec.jpeg)
 
 ### Output Register
 The output register displays the output from the registers in decimal format. The sum regsiter in the ALU passes the data to the A register which then is sent to the output register. The output register consists of EEPROM that can be programmed to convert the binary numbers to single digit decimal numbers. It also has 555 timer , counter and a decoder that cycle through each digit of the decimal output so we see each digit blinking at a time. To see the output without the digits blinking we can increase duty cycle by increasing resistance or decreasing capacitance. By this method we will be able to see the output in decimal.
