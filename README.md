@@ -62,7 +62,7 @@ The resultant number at the output(BUS_0-BUS_7) of the 4 bit adders is sent to t
 ![image](https://user-images.githubusercontent.com/97294953/218692153-dc765765-47df-4c85-b71f-2756b2bb3c95.png)
 
 * Schematic of ALU module:
-
+https://github.com/IEEE-NITK/8-bit-Computer/blob/main/ALU/ALU.png
 
 ### Program Counter
 The program counter uses a 74161 IC, which is a 4 bit synchronous counter IC that also consists of parallel load and count enable. 
@@ -87,18 +87,23 @@ The Address input to the 74189 IC comes from the bus (A0-A3) and the data input 
 ![image](https://user-images.githubusercontent.com/97294953/218693721-821a8e99-51b7-4956-9831-aaccbdf32edc.png)
 
 * Schematic of MAR module:
-
+https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Memory%20Unit/MAR%20Schematic.png
 * Schematic of RAM module:
+https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Memory%20Unit/RAM%20Schematic.png
 
 ### Control Unit
 The control unit is the module that directs the operations. It instructs the other modules like registers, ALU, RAM on how to respond to the instructions. The control unit in our 8 bit computer consists of 28C16 16K EEPROM that is programmed to translate the instructions and send the correct control signals for each instruction. Each instruction is split into several steps (T0,T1...,T5) and each step gets executed at rising edge of every clock cycle. The control unit also has counter and 6 LEDs that keep track of the step currently being executed. For every instruction the first three steps are for fetching the instructions from the instruction register. The next 2 to 3 steps are decoding and executing the instructions.
 
 ![WhatsApp Image 2023-03-04 at 15 25 33](https://user-images.githubusercontent.com/97294953/222945508-cb611bbf-ef69-450a-af61-dc1e779717ec.jpeg)
+* Schematic of Control Unit module:
+https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Control%20Unit/Control%20Unit.png
 
 ### Output Register
 The output register displays the output from the registers in decimal format. The sum regsiter in the ALU passes the data to the A register which then is sent to the output register. The output register consists of EEPROM that can be programmed to convert the binary numbers to single digit decimal numbers. It also has 555 timer , counter and a decoder that cycle through each digit of the decimal output so we see each digit blinking at a time. To see the output without the digits blinking we can increase duty cycle by increasing resistance or decreasing capacitance. By this method we will be able to see the output in decimal.
 
 ![WhatsApp Image 2023-03-05 at 10 09 35](https://user-images.githubusercontent.com/97294953/222944759-ec4e4ae5-5c10-4339-8525-e204129c13d5.jpeg)
+* Schematic of MAR module:
+https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Output%20Register/Output%20register.png
 
 ### Bus
 The Bus is a communication system that is used to connect and transfer data between all the computer modules. The bus in the 8 bit computer is built with 8 bus strips that are connected with the modules through 8 parallel wires for each module.
