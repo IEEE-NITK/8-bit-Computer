@@ -102,10 +102,11 @@ https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Control%20Unit/Control%20U
 The output register displays the output from the registers in decimal format. The sum regsiter in the ALU passes the data to the A register which then is sent to the output register. The output register consists of EEPROM that can be programmed to convert the binary numbers to single digit decimal numbers. It also has 555 timer , counter and a decoder that cycle through each digit of the decimal output so we see each digit blinking at a time. To see the output without the digits blinking we can increase duty cycle by increasing resistance or decreasing capacitance. By this method we will be able to see the output in decimal.
 
 ![WhatsApp Image 2023-03-05 at 10 09 35](https://user-images.githubusercontent.com/97294953/222944759-ec4e4ae5-5c10-4339-8525-e204129c13d5.jpeg)
-* Schematic of MAR module:
+* Schematic of Output Register module:
 https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Output%20Register/Output%20register.png
 
 ### Bus
 The Bus is a communication system that is used to connect and transfer data between all the computer modules. The bus in the 8 bit computer is built with 8 bus strips that are connected with the modules through 8 parallel wires for each module.
 
+## Breadoard implementaiton of the 8-bit-Computer
 ![WhatsApp Image 2023-03-04 at 15 25 33](https://user-images.githubusercontent.com/97294953/222945008-d843b7a4-9071-444e-96ce-b9851463cfe5.jpeg)
