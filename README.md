@@ -7,7 +7,7 @@ thumbnail: "thumbnail.png"
 year: 2023
 gmeet: ""
 ---
-# 8-bit-Computer
+# 8-bit Computer
 The project aims to design an 8 bit computer using hardware components. It also includes deisging the PCB of the same.
 The computer encompasses various modules like ALU, Clock, Registers, RAM, Program Counter, Control unit etc. Based on SAP-1 architecture, this computer will execute different types of simple instructions namely Load, store, add, subtract, jump, halt etc.
 
