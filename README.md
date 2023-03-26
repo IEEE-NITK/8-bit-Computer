@@ -123,3 +123,18 @@ The Bus is a communication system that is used to connect and transfer data betw
 
 ## Results
 The Computer is able to execute set of instructions and give the desired output without any external assistance. It is able to do all the operations that the SAP-1 Computer is capable of doing such as loading, adding, subtracting, displaying the output, etc.
+
+## Conclusion
+To conclude with, the 8 bit computer can do basic operations
+on its own and can execute set of instructions given to it as
+per the user’s requirements, meeting the requirements of the
+SAP-1 architecture.
+## Acknowledgement
+We would like to express special thanks to our mentors
+Anirudh Singh Solanki and Apurva S for their time, effort
+and guidance throughout the project.
+## References
+* Albert P. Malvino and Jerald A. Brown, Digital Computer Electronics.
+* eater.net and Ben Eater’s Youtube playlist to build an 8 bit computer
+* L. Null, J. Lobur, ”The essentials of computer organization and archi-
+tecture”, Sudbury, MA, Jones and Barlette Publishesrs, 2003
