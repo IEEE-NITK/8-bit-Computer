@@ -30,11 +30,11 @@ https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Clock%20Module/Clock%20Mod
 
 Clock Waveform is shown below
 
-![image](https://user-images.githubusercontent.com/97294953/218688589-48cceb00-c790-428b-a740-efd69decac17.png)
+![clock-waveform](https://user-images.githubusercontent.com/97294953/218688589-48cceb00-c790-428b-a740-efd69decac17.png)
 
 Achieved 49.54% duty cycle, with clock frequency of 758.1 Hz.
 
-![image](https://user-images.githubusercontent.com/97294953/218689329-30e37bef-98a6-40a9-8dff-c51696b8aea4.png)
+![clock-waveform2](https://user-images.githubusercontent.com/97294953/218689329-30e37bef-98a6-40a9-8dff-c51696b8aea4.png)
 
 
 
@@ -46,7 +46,7 @@ The registers in a computer are data storage elements used by the CPU. Registers
 The A and B registers are composed of two 4 bit data registers namely 74LS173 and one 74LS245 octal bus. The two 4 bit data registers are driven by the clock module and each receive 4 data bits. The data can be transferred to the octal bus or just stored in the register based on the control pins 1 and 2 (Oe1 and Oe2, which is zero/grounded in our case). The pins 8 and 9 are load pins which are used to control loading of data from input pins to the register, when the load pin is low it loads data into the register and doesn't load when it is high. The output pins of the register are connected to LED’s to show the data stored in it and also connected to the octal bus. The bus has a direction input pin to control the direction of data flow (high, input to output pin flow in our case) and it has an enable pin which transfers data from register to bus when low and  doesn’t transfer when high.
 
 
-![image](https://user-images.githubusercontent.com/97294953/218690584-5a53af80-d211-40ba-8e6f-f15545112047.png)
+![RegA-B](https://user-images.githubusercontent.com/97294953/218690584-5a53af80-d211-40ba-8e6f-f15545112047.png)
 
 * Schematic of Register A:
 https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Register%20A/Register%20A%20Schematic.png?raw=true
@@ -57,7 +57,7 @@ https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Register%20B/Register%20B%
 The instruction register (IR)is very similar to the A and B registers with few differences in working and usage. The IR stores the address of the instructions in 4 bits. The 4 bits are the last four least significant bits (LSB) of the IR. These bits indicate the instruction to be executed and can be loaded to the bus using the enable pin. The remaining 4 bits which are the most significant bits (MSB) of the IR are sent to the instruction decoder.
 
 
-![image](https://user-images.githubusercontent.com/97294953/218691234-b61d97b1-c89e-4693-8440-ef92a5610ca2.png)
+![Instruction-Register](https://user-images.githubusercontent.com/97294953/218691234-b61d97b1-c89e-4693-8440-ef92a5610ca2.png)
 
 * Schematic of Instruction Register:
 https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Instruction%20Register/Instruction%20Register%20Schematic.png?raw=true
@@ -69,7 +69,7 @@ Since the subtraction is 2s complement, the subtract enable signal is itself fed
 
 The resultant number at the output(BUS_0-BUS_7) of the 4 bit adders is sent to the octal bus(74LS245) and is displayed using LEDs at the each output pin of the two 4 bit adders. 
 
-![image](https://user-images.githubusercontent.com/97294953/218692153-dc765765-47df-4c85-b71f-2756b2bb3c95.png)
+![ALU](https://user-images.githubusercontent.com/97294953/218692153-dc765765-47df-4c85-b71f-2756b2bb3c95.png)
 
 * Schematic of ALU module:
 https://github.com/IEEE-NITK/8-bit-Computer/blob/main/ALU/ALU.png
@@ -78,7 +78,7 @@ https://github.com/IEEE-NITK/8-bit-Computer/blob/main/ALU/ALU.png
 The program counter uses a 74161 IC, which is a 4 bit synchronous counter IC that also consists of parallel load and count enable. 
 The program counter, by default starts from 0000 and increments every program cycle (not the same as every clock cycle). It generates the memory address of the next instruction to be accessed from the RAM and feeds it into the bus, (A0-A3) using the 74245 IC (octal bus). The enable pin allows the count to be incremented every program cycle. The program counter is also capable of reading a 4 bit memory address from the bus using the load enable coming from the control line. This is important for jumping to certain instructions or looping a set of instructions.
 
-![image](https://user-images.githubusercontent.com/97294953/218692870-6b3eef5b-7dde-4229-a589-0858d6c93eb0.png)
+![Program-Counter](https://user-images.githubusercontent.com/97294953/218692870-6b3eef5b-7dde-4229-a589-0858d6c93eb0.png)
 
 * Schematic of Program Counter module
 https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Program%20Counter/Program%20Counter%20Schematic.png?raw=true
