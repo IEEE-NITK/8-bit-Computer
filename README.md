@@ -127,7 +127,7 @@ https://github.com/IEEE-NITK/8-bit-Computer/blob/main/Output%20Register/Output%2
 #### Bus
 The Bus is a communication system that is used to connect and transfer data between all the computer modules. The bus in the 8 bit computer is built with 8 bus strips that are connected with the modules through 8 parallel wires for each module.
 
-## Breadoard implementaiton of the 8-bit-Computer
+## Breadoard implementation of the 8-bit-Computer
 ![Final_Computer](https://user-images.githubusercontent.com/117503034/227777857-eb3d1870-bb64-4fd8-a440-e8562fc4bffb.jpg)
 
 ## Results
